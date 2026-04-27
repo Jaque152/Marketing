@@ -5,7 +5,7 @@ import { ContactSchema, ContactFormData } from '@/schemas/contact';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const INTERNAL_EMAIL = 'contacto@marketingresultados.com'; // Tu correo real
+const INTERNAL_EMAIL = 'info@marketingresultados.com'; // Tu correo real
 
 export async function submitContactForm(data: ContactFormData) {
   try {

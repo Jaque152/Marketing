@@ -23,7 +23,7 @@ export function Navigation() {
     { name: "Inicio", href: `/${locale}` },
     { name: "Agencia", href: `/${locale}/about` },
     { name: "Estrategias", href: `/${locale}/services` },
-    { name: "A tu medida", href: `/${locale}/pricing` },
+    { name: "Personalizado", href: `/${locale}/pricing` },
     { name: "Contacto", href: `/${locale}/contact` },
   ];
 

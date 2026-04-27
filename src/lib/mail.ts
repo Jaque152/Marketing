@@ -1,8 +1,8 @@
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const FROM_EMAIL = 'ventas@tu-nueva-agencia.com'; 
-const INTERNAL_EMAIL = 'contacto@tu-nueva-agencia.com';
+const FROM_EMAIL = 'ventas@marketingresultados.com'; 
+const INTERNAL_EMAIL = 'info@marketingresultados.com';
 
 const formatPrice = (price: number) => 
   new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN" }).format(price);

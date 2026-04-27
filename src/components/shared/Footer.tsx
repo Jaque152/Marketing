@@ -129,7 +129,7 @@ export function Footer() {
         className="fixed bottom-8 right-8 z-40"
       >
         <Link 
-          href={`/${locale}/contacto`}
+          href={`/${locale}/contact`}
           className="w-14 h-14 bg-gradient-to-br from-[var(--copper)] to-[var(--amber)] rounded-full flex items-center justify-center shadow-xl shadow-[var(--copper)]/30 hover:scale-110 active:scale-95 transition-transform"
         >
           <svg className="w-6 h-6 text-[var(--navy)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">

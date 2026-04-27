@@ -14,6 +14,7 @@ export default async function ServicesPage({
     .from('plans_nc')
     .select('*')
     .eq('is_active', true)
+    .neq('slug', 'plan-personalizado')
     .order('price', { ascending: false });
 
   // Textos según el idioma
