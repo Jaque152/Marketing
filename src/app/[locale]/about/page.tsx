@@ -2,24 +2,33 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLocale } from "next-intl";
 
 export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const locale = useLocale();
+  const isEs = locale === 'es';
 
-  // Array de servicios para iterarlos limpiamente en el JSX
+  // El array se mueve adentro para poder leer el 'locale'
   const services = [
     {
-      title: "Marketing de Alto Rendimiento",
-      description: "Impulsa tu marca hacia el siguiente nivel. Implementamos soluciones disruptivas diseñadas para que logres destacar y conectar con tu audiencia de manera auténtica y efectiva."
+      title: isEs ? "Marketing de Alto Rendimiento" : "High-Performance Marketing",
+      description: isEs 
+        ? "Impulsa tu marca hacia el siguiente nivel. Implementamos soluciones disruptivas diseñadas para que logres destacar y conectar con tu audiencia de manera auténtica y efectiva."
+        : "Push your brand to the next level. We implement disruptive solutions designed to help you stand out and connect with your audience authentically and effectively."
     },
     {
-      title: "Comunicación Estratégica",
-      description: "Creamos conexiones que impactan. Potenciamos tu mensaje mediante enfoques creativos que aseguran que tu voz sea escuchada con claridad por el público adecuado."
+      title: isEs ? "Comunicación Estratégica" : "Strategic Communication",
+      description: isEs 
+        ? "Creamos conexiones que impactan. Potenciamos tu mensaje mediante enfoques creativos que aseguran que tu voz sea escuchada con claridad por el público adecuado."
+        : "We create connections that make an impact. We empower your message through creative approaches ensuring your voice is heard clearly by the right audience."
     },
     {
-      title: "Estrategia y Visión de Negocio",
-      description: "Diseñamos la hoja de ruta para tu éxito. Elevamos el valor de tu marca con estrategias innovadoras que garantizan un posicionamiento sólido y un impacto duradero en la industria."
+      title: isEs ? "Estrategia y Visión de Negocio" : "Business Strategy & Vision",
+      description: isEs 
+        ? "Diseñamos la hoja de ruta para tu éxito. Elevamos el valor de tu marca con estrategias innovadoras que garantizan un posicionamiento sólido y un impacto duradero en la industria."
+        : "We design the roadmap to your success. We elevate your brand's value with innovative strategies that guarantee solid positioning and a lasting impact in the industry."
     }
   ];
 
@@ -29,11 +38,9 @@ export default function About() {
       ref={ref}
       className="relative py-32 overflow-hidden bg-gradient-to-b from-[#0F0F1A] to-[#1A1B2E]"
     >
-      {/* Background accent */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C87941]/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -41,16 +48,17 @@ export default function About() {
           className="mb-20"
         >
           <span className="text-[#C87941] uppercase tracking-[0.3em] text-sm font-medium">
-            Sobre Nosotros
+            {isEs ? 'Sobre Nosotros' : 'About Us'}
           </span>
           <h2 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F5F0E8] max-w-3xl leading-tight">
             Marketing Recursos{" "}
-            <span className="text-gradient">Elevando el Potencial de tu Negocio</span>
+            <span className="text-gradient">
+              {isEs ? 'Elevando el Potencial de tu Negocio' : 'Elevating Your Business Potential'}
+            </span>
           </h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column - Mission */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -58,11 +66,14 @@ export default function About() {
             className="space-y-8"
           >
             <p className="text-xl text-[#F5F0E8]/80 leading-relaxed">
-              En <strong className="text-[#E8B86D] font-semibold">Marketing Recursos</strong>, nuestra misión es clara: diseñar soluciones de marketing personalizadas y de alto impacto que permitan a las empresas no solo crecer, sino dominar un mercado en constante evolución.
+              {isEs ? (
+                <>En <strong className="text-[#E8B86D] font-semibold">Marketing Recursos</strong>, nuestra misión es clara: diseñar soluciones de marketing personalizadas y de alto impacto que permitan a las empresas no solo crecer, sino dominar un mercado en constante evolución.</>
+              ) : (
+                <>At <strong className="text-[#E8B86D] font-semibold">Marketing Recursos</strong>, our mission is clear: to design highly personalized and impactful marketing solutions that allow companies not only to grow but to dominate an ever-evolving market.</>
+              )}
             </p>
           </motion.div>
 
-          {/* Right Column - Vision */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -72,38 +83,38 @@ export default function About() {
             <div className="relative">
               <div className="absolute -left-6 top-0 w-1 h-full bg-gradient-to-b from-[#C87941] to-[#E8B86D] rounded-full" />
               <h3 className="text-3xl font-bold text-[#F5F0E8] mb-6">
-                Nuestra Visión y Propósito
+                {isEs ? 'Nuestra Visión y Propósito' : 'Our Vision & Purpose'}
               </h3>
               <div className="space-y-6 text-[#F5F0E8]/70 leading-relaxed">
                 <p>
-                  Aspiramos a consolidarnos como el referente de confianza y éxito en el sector. Nos mueve la creatividad estratégica, la innovación constante y una búsqueda incansable de la excelencia en el servicio.
+                  {isEs 
+                    ? 'Aspiramos a consolidarnos como el referente de confianza y éxito en el sector. Nos mueve la creatividad estratégica, la innovación constante y una búsqueda incansable de la excelencia en el servicio.'
+                    : 'We aspire to consolidate ourselves as the benchmark of trust and success in the sector. We are driven by strategic creativity, constant innovation, and an untiring search for service excellence.'}
                 </p>
                 <p>
-                 Entendemos que el éxito es un trabajo en equipo. Por ello, apostamos por una colaboración estrecha y una comunicación transparente con cada cliente, garantizando que sus objetivos de negocio no solo se alcancen, sino que se superen.
+                  {isEs 
+                    ? 'Entendemos que el éxito es un trabajo en equipo. Por ello, apostamos por una colaboración estrecha y una comunicación transparente con cada cliente, garantizando que sus objetivos de negocio no solo se alcancen, sino que se superen.'
+                    : 'We understand that success is a team effort. Therefore, we are committed to close collaboration and transparent communication with each client, ensuring their business goals are not only met but exceeded.'}
                 </p>
                 <p className="text-[#F5F0E8] font-medium pt-2">
-                  ¿Buscas resultados reales con un enfoque creativo? Contáctanos hoy mismo y transformemos tu visión en éxito.
+                  {isEs 
+                    ? '¿Buscas resultados reales con un enfoque creativo? Contáctanos hoy mismo y transformemos tu visión en éxito.'
+                    : 'Looking for real results with a creative approach? Contact us today and let\'s transform your vision into success.'}
                 </p>
               </div>
             </div>
 
-            {/* CTA */}
             <motion.a
-              href="/contact"
+              href={`/${locale}/contact`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-3 mt-8 group cursor-pointer"
             >
               <span className="text-[#E8B86D] font-medium group-hover:text-[#C87941] transition-colors">
-                Inicia tu Proyecto
+                {isEs ? 'Inicia tu Proyecto' : 'Start Your Project'}
               </span>
               <div className="w-10 h-10 rounded-full border border-[#E8B86D] flex items-center justify-center group-hover:bg-[#E8B86D] group-hover:border-[#E8B86D] transition-all duration-300">
-                <svg
-                  className="w-4 h-4 text-[#E8B86D] group-hover:text-[#0F0F1A] group-hover:translate-x-1 transition-all duration-300"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                <svg className="w-4 h-4 text-[#E8B86D] group-hover:text-[#0F0F1A] group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
@@ -111,7 +122,6 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Services Section (Nueva sección integrada) */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -119,7 +129,7 @@ export default function About() {
           className="mt-24 pt-20 border-t border-[#C87941]/20"
         >
           <h3 className="text-3xl lg:text-4xl font-bold text-[#F5F0E8] mb-12 text-center">
-            Nuestros Servicios Especializados
+            {isEs ? 'Nuestros Servicios Especializados' : 'Our Specialized Services'}
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -141,7 +151,7 @@ export default function About() {
             ))}
           </div>
         </motion.div>
-
+        
         {/* Image Strip */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}

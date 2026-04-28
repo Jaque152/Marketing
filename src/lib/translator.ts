@@ -53,6 +53,6 @@ export async function getTranslation(text: string, targetLang: string): Promise<
     return translatedText;
   } catch (error) {
     console.error("Error en getTranslation:", error);
-    return text; // Fallback: devolvemos el texto original si algo falla
+    return text; 
   }
 }

@@ -182,3 +182,40 @@ CREATE POLICY "Permitir insertar carrito" ON public.cart_items_nc FOR INSERT WIT
 CREATE POLICY "Permitir leer carrito" ON public.cart_items_nc FOR SELECT USING (true);
 CREATE POLICY "Permitir borrar carrito" ON public.cart_items_nc FOR DELETE USING (true);
 CREATE POLICY "Permitir actualizar carrito" ON public.cart_items_nc FOR UPDATE USING (true);
+
+-- =====================================================================================
+-- ACTUALIZACIÓN DE IMÁGENES PARA PLANES DE MARKETING
+-- =====================================================================================
+
+UPDATE public.plans_nc 
+SET image_url = 'https://plus.unsplash.com/premium_photo-1661284886711-4eaee4fa7771?q=80&w=1170&auto=format&fit=crop'
+WHERE slug = 'plan-ultra-premium';
+
+UPDATE public.plans_nc 
+SET image_url = 'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=1170&auto=format&fit=crop'
+WHERE slug = 'plan-elite';
+
+UPDATE public.plans_nc 
+SET image_url = 'https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?q=80&w=1173&auto=format&fit=crop'
+WHERE slug = 'plan-intensivo-pro';
+
+UPDATE public.plans_nc 
+SET image_url = 'https://plus.unsplash.com/premium_photo-1661382011487-cd3d6b1d9dff?q=80&w=1171&auto=format&fit=crop'
+WHERE slug = 'plan-premium';
+
+UPDATE public.plans_nc 
+SET image_url = 'https://images.unsplash.com/photo-1620912189868-30778f884588?q=80&w=1169&auto=format&fit=crop'
+WHERE slug = 'plan-avanzado';
+
+UPDATE public.plans_nc 
+SET image_url = 'https://plus.unsplash.com/premium_photo-1661293878449-979990331350?q=80&w=1170&auto=format&fit=crop'
+WHERE slug = 'plan-intensivo';
+
+UPDATE public.plans_nc 
+SET image_url = 'https://plus.unsplash.com/premium_photo-1663054914576-252d1479383e?q=80&w=1332&auto=format&fit=crop'
+WHERE slug = 'plan-intermedio';
+
+UPDATE public.plans_nc 
+SET image_url = 'https://plus.unsplash.com/premium_photo-1661326291059-eb076cc5bdd6?q=80&w=1170&auto=format&fit=crop'
+WHERE slug = 'plan-basico';
+
