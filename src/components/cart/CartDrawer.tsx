@@ -58,7 +58,7 @@ export function CartDrawer() {
               <div className="text-right">
                 <span className="text-3xl font-bold text-gradient block">{formatPrice(total)}</span>
                 <span className="text-[10px] text-muted-foreground uppercase tracking-tighter">
-                  {locale === 'es' ? 'IVA del 16% Incluido' : '16% VAT Included'}
+                  {locale === 'es' ? 'MXN + IVA del 16% ' : 'MXN + 16% VAT'}
                 </span>
               </div>
             </div>

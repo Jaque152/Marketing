@@ -83,7 +83,7 @@ export default function CartPage() {
 
                       <div className="col-span-1 md:col-span-3 md:text-right font-bold text-lg">
                         <span className="md:hidden font-bold text-muted-foreground font-normal mr-2">{locale === 'es' ? 'Precio:' : 'Price:'}</span>
-                        {formatPrice(itemPrice * item.quantity)}
+                        {formatPrice(itemPrice * item.quantity)} MXN
                       </div>
 
                       <div className="col-span-1 md:col-span-1 flex md:justify-end mt-4 md:mt-0">
@@ -110,15 +110,15 @@ export default function CartPage() {
             <div className="space-y-4 mb-6 font-sans">
               <div className="flex justify-between items-center text-muted-foreground">
                 <span>Subtotal</span>
-                <span className="text-foreground font-medium">{formatPrice(total / 1.16)}</span>
+                <span className="text-foreground font-medium">{formatPrice(total)}</span>
               </div>
               <div className="flex justify-between items-center text-muted-foreground">
                 <span>{locale === 'es' ? 'Impuesto (16%)' : 'Tax (16%)'}</span>
-                <span className="text-foreground font-medium">{formatPrice(total - (total / 1.16))}</span>
+                <span className="text-foreground font-medium">{formatPrice(total*0.16)}</span>
               </div>
               <div className="border-t border-border pt-4 mt-4 flex justify-between items-center text-xl font-bold text-gradient">
                 <span>{locale === 'es' ? 'Total Estimado' : 'Estimated Total'}</span>
-                <span>{formatPrice(total)}</span>
+                <span>{formatPrice(total*1.16)}</span>
               </div>
             </div>
             

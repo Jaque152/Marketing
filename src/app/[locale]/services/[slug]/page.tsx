@@ -119,10 +119,10 @@ export default async function PlanDetailPage({
                 
                 <div className="mb-8">
                   <div className="text-4xl font-bold text-gradient font-sans mb-1">
-                    {formatPrice(plan.price)}
+                    {formatPrice(plan.price)} MXN
                   </div>
                   <div className="text-[var(--cream)]/40 text-sm uppercase tracking-widest font-sans">
-                    {isEs ? 'IVA (16%) Incluido' : 'Taxes Included'}
+                    {isEs ? '+ IVA (16%) ' : '+ Taxes'}
                   </div>
                 </div>
 

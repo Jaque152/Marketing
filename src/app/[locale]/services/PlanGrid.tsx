@@ -78,7 +78,7 @@ function PlanCard({
               {formatPrice(plan.price)}
             </span>
             <span className="text-[10px] text-[var(--cream)]/40 ml-2 uppercase tracking-widest font-sans">
-              MXN / IVA Inc.
+              MXN + IVA 
             </span>
           </div>
 
